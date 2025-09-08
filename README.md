@@ -141,13 +141,6 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 
 ---
 
-## Next Steps
-
-* Add **Analytics** or **Billing/Accounting** services to show fan-out and chaining.
-* Experiment with **new partitions** and **multiple brokers**.
-* Try running more producers/consumers to see how Kafka rebalances work.
-
----
 
 ## License & Credits
 
