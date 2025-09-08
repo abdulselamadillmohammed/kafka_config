@@ -143,7 +143,3 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 
 - This repo is for educational/demo purposes.
 - **Credit:** [Apache Kafka Crash Course – Hussein Nasser](https://youtu.be/R873BlNVUB4?si=-mx8jLqvNJsHUcNE)
-
-```
-
-```
