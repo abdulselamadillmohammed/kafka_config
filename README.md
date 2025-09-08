@@ -6,9 +6,6 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 - **Consumer service (Emailer):** listens to those events and “sends emails.”
 - Can easily be extended with **Analytics** (fan-out) or **Billing/Accounting** (chained events).
 
-> **Credits:** Inspired by  
-> [Apache Kafka Crash Course – Hussein Nasser](https://youtu.be/R873BlNVUB4?si=-mx8jLqvNJsHUcNE)
-
 ---
 
 ## Why Kafka?
@@ -136,10 +133,3 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
   docker exec -it kafka /opt/bitnami/kafka/bin/kafka-consumer-groups.sh \
     --bootstrap-server localhost:9092 --describe --group emailer-group
   ```
-
----
-
-## License & Credits
-
-- This repo is for educational/demo purposes.
-- **Credit:** [Apache Kafka Crash Course – Hussein Nasser](https://youtu.be/R873BlNVUB4?si=-mx8jLqvNJsHUcNE)
