@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kafka Orders Presenter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          sans-serif;
+        margin: 2rem;
+      }
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+      #status {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      li {
+        padding: 0.25rem 0;
+      }
+      .p0 {
+        color: #0b6;
+      }
+      .p1 {
+        color: #06c;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Orders Processed</h1>
+    <div id="status">connecting…</div>
+    <ul id="orders-list"></ul>
+
+    <script>
+      const statusEl = document.getElementById("status");
+      const listEl = document.getElementById("orders-list");
+
+      const es = new EventSource("/orders-stream");
+
+      es.onopen = () => (statusEl.textContent = "live (connected)");
+      es.onerror = () => (statusEl.textContent = "disconnected (retrying…)");
+
+      es.onmessage = (evt) => {
+        try {
+          const e = JSON.parse(evt.data);
+          const li = document.createElement("li");
+          li.className = `p${e.partition ?? "x"}`;
+          li.textContent = `p${e.partition} • Order #${e.orderId} • $${e.amount} • ${e.at}`;
+          listEl.prepend(li);
+        } catch {
+          /* ignore */
+        }
+      };
+    </script>
+  </body>
+</html>

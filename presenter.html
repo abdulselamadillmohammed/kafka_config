@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kafka Order Viewer</title>
+  </head>
+  <body>
+    <h1>Orders Processed</h1>
+    <ul id="orders-list"></ul>
+
+    <script>
+      const eventSource = new EventSource(
+        "http://localhost:3000/orders-stream"
+      );
+      eventSource.onmessage = function (event) {
+        const newOrder = JSON.parse(event.data);
+        const listItem = document.createElement("li");
+        listItem.textContent = `Order #${newOrder.orderId} for ${newOrder.amount} USD`;
+        document.getElementById("orders-list").appendChild(listItem);
+      };
+    </script>
+  </body>
+</html>
