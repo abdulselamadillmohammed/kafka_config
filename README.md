@@ -33,8 +33,6 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
    HOST_IP=10.0.0.100
    ```
 
-````
-
 4. Start Kafka and ZooKeeper:
 
    ```bash
@@ -72,7 +70,7 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 
 5. Run the services:
 
-   * **Producer (Orders):**
+   - **Producer (Orders):**
 
      ```bash
      node orders/producer.js 5
@@ -80,7 +78,7 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 
      → Sends 5 `OrderCreated` events to Kafka.
 
-   * **Consumer (Emailer):**
+   - **Consumer (Emailer):**
 
      ```bash
      node emailer/consumer.js
@@ -92,7 +90,7 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 
 ## Demos
 
-* **Load balancing:**
+- **Load balancing:**
   Start two Emailer consumers with the same group ID:
 
   ```bash
@@ -102,37 +100,37 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 
   Kafka automatically splits partitions between them.
 
-* **Fan-out (pub/sub):**
+- **Fan-out (pub/sub):**
   Start an **Analytics** consumer with a different group ID:
 
   ```bash
   node analytics/consumer.js
   ```
 
-  Both Emailer and Analytics will receive *all* events.
+  Both Emailer and Analytics will receive _all_ events.
 
-* **Replay:**
+- **Replay:**
   Consumers can be run with `fromBeginning: true` to reprocess history.
 
 ---
 
 ## Useful commands (on Pi)
 
-* List topics:
+- List topics:
 
   ```bash
   docker exec -it kafka /opt/bitnami/kafka/bin/kafka-topics.sh \
     --bootstrap-server localhost:9092 --list
   ```
 
-* Inspect consumer groups:
+- Inspect consumer groups:
 
   ```bash
   docker exec -it kafka /opt/bitnami/kafka/bin/kafka-consumer-groups.sh \
     --bootstrap-server localhost:9092 --list
   ```
 
-* Describe a group (check offsets/lag):
+- Describe a group (check offsets/lag):
 
   ```bash
   docker exec -it kafka /opt/bitnami/kafka/bin/kafka-consumer-groups.sh \
@@ -141,11 +139,11 @@ A minimal **event-driven architecture** demo using **Apache Kafka** running on a
 
 ---
 
-
 ## License & Credits
 
-* This repo is for educational/demo purposes.
-* **Credit:** [Apache Kafka Crash Course – Hussein Nasser](https://youtu.be/R873BlNVUB4?si=-mx8jLqvNJsHUcNE)
+- This repo is for educational/demo purposes.
+- **Credit:** [Apache Kafka Crash Course – Hussein Nasser](https://youtu.be/R873BlNVUB4?si=-mx8jLqvNJsHUcNE)
 
 ```
-````
+
+```
