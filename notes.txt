@@ -7,3 +7,7 @@ https://kafka.apache.org/quickstart
 
 ---
 
+export KAFKA_BROKER=10.0.0.100:9092
+export TOPIC=orders.events
+export GROUP_ID=py-consumer-group
+
